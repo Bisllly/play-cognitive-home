@@ -5,17 +5,19 @@ public class Triangle {
     public static String starStr = "*";
     public static String spaceStr = "-";
     public static String repeatedStarStr = "";
-    public static String repeatedSpaceStr = "-------------";
+    public static String repeatedSpaceStr = "*";
 
     public static void main(String[] args) {
         //prints out a triangle with 9 rows
         //row
-//        int h = 4;
+        int h=3;
 
-        for (int h = maxH; h >= 1; h--) {
-            printSpace(maxH);
-            printStar(maxH);
-//            System.out.println();
+        for (int row = 1; row<=h; row++) {
+            printSpace(h,row);
+            printStar(row);
+            System.out.println();
+
+
 
 //            for (int space=h-1; space>h;space--){
 //                System.out.print("-");}
@@ -42,23 +44,16 @@ public class Triangle {
     }
 
 
-    private static void printSpace(int maxH) {
-        //add another loop to control maxH, because it would change
-//        for (int h = maxH; h >= 1; h--) {
-            for (int space = maxH - 1; space >= 0; space-=4) {
-                repeatedSpaceStr = repeatedSpaceStr.substring(0, repeatedSpaceStr.length() - 2);
+    private static void printSpace(int maxH, int row) {
+            for (int space = 0; space < maxH-row; space++) {
+                System.out.print(" ");
             }
-            System.out.print(repeatedSpaceStr);
-
 //        }
     }
 
     private static void printStar(int maxH) {
-        //start = 2h-1
-//        for (int h = maxH; h >=1; h--) {
-            for (int star=1;star<=2*maxH-1;star+=2){
-                repeatedStarStr+= starStr;
-            }
-            System.out.println(repeatedStarStr);
+        for (int star=0;star<2*maxH-1;star++){
+            System.out.print("*");
+        }
     }
 }
