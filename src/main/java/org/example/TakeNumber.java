@@ -16,7 +16,7 @@ public class TakeNumber {
             } catch (NumberFormatException e) {
             }
 
+            System.out.println(sum);
         }
-        System.out.println(sum);
     }
 }
