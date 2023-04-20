@@ -10,6 +10,8 @@ public class RandomNotes {
         int index2 = (int) Math.round(Math.random() * (notes.length - 1));
         if (index2 != index) {
             System.out.println(notes[index2]);
+        } else {
+
         }
 
     }
