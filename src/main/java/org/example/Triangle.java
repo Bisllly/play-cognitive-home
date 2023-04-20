@@ -1,59 +1,38 @@
 package org.example;
 
 public class Triangle {
-    public static int maxH = 4;
-    public static String starStr = "*";
-    public static String spaceStr = "-";
-    public static String repeatedStarStr = "";
-    public static String repeatedSpaceStr = "*";
-
     public static void main(String[] args) {
-        //prints out a triangle with 9 rows
-        //row
-        int h=3;
-
-        for (int row = 1; row<=h; row++) {
-            printSpace(h,row);
-            printStar(row);
-            System.out.println();
-
-
-
-//            for (int space=h-1; space>h;space--){
-//                System.out.print("-");}
+//        printSpace();
+//        printStar();
+        System.out.println();
+    }
+//    public static int maxH = 4;
+//    public static String starStr = "*";
+//    public static String spaceStr = "-";
+//    public static String repeatedStarStr = "";
+//    public static String repeatedSpaceStr = "*";
 //
-//            for (int start=row;start<=(h*2)+1;start++){
+//    public static void main(String[] args) {
+//        //row
+//        int h=4;
 //
-//                System.out.print("*");
-//            }
+//        for (int row = h; row>0; row--) {//each row, start from 1 (top of the triangle)
+//            printSpace(h,row);
+//            printStar(row);
 //            System.out.println();
-
-           // printSpace(row-1); // space = (h-1)/2
-           // printStart(2*row-1, h);
-
-//            int add = row - 1;
-//            int maxSlots = 4 + add;
-//            for (int slots = 1; slots <= maxSlots; slots+=2) {
-//                for (int i = 1; i <= slots; i+=1) {
-//                    System.out.print("x");
-//                }
-//                System.out.println();
-//            }
-
-        }
-    }
-
-
-    private static void printSpace(int maxH, int row) {
-            for (int space = 0; space < maxH-row; space++) {
-                System.out.print(" ");
-            }
 //        }
-    }
-
-    private static void printStar(int maxH) {
-        for (int star=0;star<2*maxH-1;star++){
-            System.out.print("*");
-        }
-    }
+//    }
+//
+//    private static void printSpace(int h, int row) {
+//            for (int space = 0; space < h-row; space++) {
+//                System.out.print(" ");
+//            }
+////        }
+//    }
+//
+//    private static void printStar(int h) {
+//        for (int star=2*h-1;star >0 && star<=2*h-1;star--){
+//            System.out.print("*");
+//        }
+//    }
 }
