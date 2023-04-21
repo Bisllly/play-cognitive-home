@@ -1,19 +1,26 @@
 package org.example;
-
+import java.util.HashSet;
 public class RandomNotes {
+
     public static void main(String[] args) {
-        //random a note in notes
         String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
-        int index = (int) Math.round(Math.random() * (notes.length - 1));
-        System.out.println(notes[index]);
-        //random another 2 different note in notes
-        int index2 = (int) Math.round(Math.random() * (notes.length - 1));
-        if (index2 != index) {
-            System.out.println(notes[index2]);
-        } else {
-
-        }
-
+        addNotes(notes, randomIndex(notes));
     }
 
+    private static int randomIndex(String[] notes) {
+        return (int) Math.round(Math.random() * (notes.length - 1));
+    }
+
+    private static void addNotes(String[] notes, int randomIndex) {
+        HashSet<String> myNotes = new HashSet<>();
+        while (myNotes.size() < 3) {
+            myNotes.add(notes[randomIndex]);
+            randomIndex = randomIndex(notes);
+        }
+        System.out.println(myNotes);
+    }
+
+    private static void addMajChord(String[] notes) {
+
+    }
 }
