@@ -1,22 +1,29 @@
 package org.example;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 public class RandomNotes {
 
     public static void main(String[] args) {
         String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
-        addNotes(notes, randomIndex(notes));
+        threeNotes(notes, randomIndex(notes));
+        majChord(notes);
     }
-
+    //////////////////////////////////////////////////////////////////////////////////////
     private static int randomIndex(String[] notes) {
         return (int) Math.round(Math.random() * (notes.length - 1));
     }
 
-    private static HashSet<String> createHashSet() {
-        return new HashSet<>();
+    private static LinkedHashSet<String> createLinkedHashSet() {
+        return new LinkedHashSet<>();
     }
 
-    private static void addNotes(String[] notes, int randomIndex) {
-        HashSet<String> myNotes = createHashSet();
+//    private static LinkedHashSet<String> addNote(int randomIndex, String[] notes) {
+//        LinkedHashSet<String> LinkedHashSet = createLinkedHashSet();
+//        LinkedHashSet.add(notes[randomIndex]);
+//        return LinkedHashSet;
+//    }
+
+    private static void threeNotes(String[] notes, int randomIndex) {
+        LinkedHashSet<String> myNotes = createLinkedHashSet();
         while (myNotes.size() < 3) {
             myNotes.add(notes[randomIndex]);
             randomIndex = randomIndex(notes);
@@ -24,7 +31,14 @@ public class RandomNotes {
         System.out.println("3 different notes: "+ myNotes);
     }
 
-    private static void addMajChord(String[] notes) {
-
+    private static void majChord(String[] notes) {
+        LinkedHashSet<String> myChord = createLinkedHashSet();
+        int index = randomIndex(notes);
+        for(int i = 1; i <= 3; i++) {
+            myChord.add(notes[index]);
+            index = index + 2;
+            System.out.print(" & " + index);
+        }
+        System.out.println(" Major chord: " + myChord);
     }
 }
