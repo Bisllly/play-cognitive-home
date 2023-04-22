@@ -11,13 +11,17 @@ public class RandomNotes {
         return (int) Math.round(Math.random() * (notes.length - 1));
     }
 
+    private static HashSet<String> createHashSet() {
+        return new HashSet<>();
+    }
+
     private static void addNotes(String[] notes, int randomIndex) {
-        HashSet<String> myNotes = new HashSet<>();
+        HashSet<String> myNotes = createHashSet();
         while (myNotes.size() < 3) {
             myNotes.add(notes[randomIndex]);
             randomIndex = randomIndex(notes);
         }
-        System.out.println(myNotes);
+        System.out.println("3 different notes: "+ myNotes);
     }
 
     private static void addMajChord(String[] notes) {
