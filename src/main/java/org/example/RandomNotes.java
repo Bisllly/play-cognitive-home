@@ -37,8 +37,7 @@ public class RandomNotes {
         for(int i = 1; i <= 3; i++) {
             myChord.add(notes[index]);
             index = index + 2;
-            System.out.print(" & " + index);
         }
-        System.out.println(" Major chord: " + myChord);
+        System.out.println(myChord.toArray()[0] + " major chord: " + myChord);
     }
 }
