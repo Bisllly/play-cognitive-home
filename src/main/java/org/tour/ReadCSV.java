@@ -17,7 +17,7 @@ public class ReadCSV {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             br.readLine();
 
-            //use for looop to shorten code
+            //use for looop to shorten code hehe
 //            for (int i = 1; i <= 7; i++) {
 
             String column1 = "";
