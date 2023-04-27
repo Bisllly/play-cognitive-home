@@ -4,6 +4,7 @@ import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ReadCSV {
     public static void main(String[] args) throws Exception {
@@ -169,22 +170,43 @@ class Tour {
         double price;
         double wage;
         double expense;
-        String date = "25/4";
-        for (Tour tour : tours) {
-            if (tour.getDate().equals(date)) {
-                guests = tour.getNumOfGuest();
-                guides = tour.getNumOfGuide();
-                price = tour.getPrice();
-                wage  = tour.getWage();
-                expense = tour.getExpense();
-                totalAmount += guests * price;
-                totalWage += guides * wage;
-                totalExpense += expense;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter date");
+        date = scanner.nextLine();
+
+        boolean b = true;
+
+        while(b) {
+            for (Tour tour : tours) {
+                if (tour.getDate().equals(date)) {
+                    guests = tour.getNumOfGuest();
+                    guides = tour.getNumOfGuide();
+                    price = tour.getPrice();
+                    wage = tour.getWage();
+                    expense = tour.getExpense();
+                    totalAmount += guests * price;
+                    totalWage += guides * wage;
+                    totalExpense += expense;
+                }
+            }
+
+            if (totalAmount > 0) {
+                System.out.println("revenue of " + date + " is " + totalAmount);
+                System.out.println("total wage paid in " + date + " is " + totalWage);
+                System.out.println("total expense paid in " + date + " is " + totalExpense);
+                System.out.print("money we earned in " + date + " is " + (totalAmount - (totalWage + totalExpense)));
+                break;
+            } else {
+                Scanner scanner1 = new Scanner(System.in);
+                System.out.println("Date is not present in list, enter another date or type `fxxkit` to get out of here: ");
+                date = scanner1.nextLine();
+
+                if (date.equals("fxxkit")) {
+                    System.out.println("program ended!");
+                    break;
+                }
             }
         }
-        System.out.println("revenue of " + date + " is " + totalAmount);
-        System.out.println("total wage paid in " + date + " is " + totalWage);
-        System.out.println("total expense paid in " + date + " is " + totalExpense);
-        System.out.print("money we earned in " + date + " is " + (totalAmount - (totalWage + totalExpense)));
     }
 }

@@ -21,5 +21,12 @@
             <artifactId>opencsv</artifactId>
             <version>5.7.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.mongodb/mongo-driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>3.12.6</version>
+        </dependency>
+
     </dependencies>
 </project>
